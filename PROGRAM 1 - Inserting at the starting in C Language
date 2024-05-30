@@ -1,0 +1,34 @@
+PROGRAM 1 - Inserting at the starting in C Language
+#include <stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node *next;
+};
+typedef struct node sn;
+sn* insert(sn* head,int val){
+    sn* nn=(sn*)malloc(sizeof(sn));
+    nn->data=val;
+    nn->next=head;
+    head=nn;
+    return head;
+}
+void display(sn* head){
+    sn * t=head;
+    while(t){
+        printf("%d->",t->data);
+        t=t->next;
+    }
+}
+int main()
+{
+    sn* head=NULL;
+    int n; scanf("%d",&n);
+    for(int i=0;i<n;i++){
+        int x; scanf("%d",&x);
+        head=insert(head,x);
+    }
+    display(head);
+}
+
+
