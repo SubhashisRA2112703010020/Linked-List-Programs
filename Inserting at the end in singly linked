@@ -1,0 +1,24 @@
+PROGRAM  - Inserting at the end in singly linked list(Python)
+class node:
+    def __init__(self,val):
+        self.data=val 
+        self.next=None
+def insert(head,val):
+    x=node(val)
+    if head==None:head=x 
+    else:
+        p=head
+        while p.next:p=p.next
+        p.next=x 
+    return head
+def display(head):
+    p=head
+    while(p):
+        print(p.data,end='->')
+        p=p.next
+head=None 
+n=int(input())
+l=list(map(int,input().split()))
+for i in l:
+    head=insert(head,i)
+display(head)
