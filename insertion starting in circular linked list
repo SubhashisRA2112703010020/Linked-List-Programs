@@ -1,0 +1,27 @@
+insertion starting in circular linked list
+class node:
+    def __init__(self,val):
+        self.data=val 
+        self.next=None 
+def insert(tail,val):
+    nn=node(val)
+    if tail==None:
+        tail=nn
+        tail.next=tail
+    else:
+        nn.next=tail.next
+        tail.next=nn
+    return tail
+def display(tail):
+    if tail==None: return
+    x=tail.next
+    while x!=tail:
+        print(x.data,end='->')
+        x=x.next
+    print(tail.data)
+tail=None
+n=int(input())
+l=list(map(int,input().split()))
+for i in l:
+    tail=insert(tail,i)
+display(tail)
